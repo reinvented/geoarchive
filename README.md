@@ -14,6 +14,16 @@ Using GeoArchive you can take [Foursquare](http://foursquare.com) checkins, [Pla
 
 GeoJSON is easy to parse, and is becoming a *lingua franca* of digital mapping tools: you can visualize GeoJSON files at [geojson.io](http://geojson.io), load them into [QGIS](http://www.qgis.org/en/site/) and [overlay them on Leaflet-powered maps](http://leafletjs.com/examples/geojson.html).
 
+## Examples of Use
+
+Here's a visualization, in [QGIS](http://www.qgis.org/en/site/), off all of my own geopresence traces over the past decade in Europe:
+
+![image](screenshots/geopresence-in-europe-qgis.png)
+
+And here's a visualization, overlaid on a Bing satellite map in [QGIS](http://www.qgis.org/en/site/) of my geopresence in Charlottetown, Prince Edward Island over the same decade:
+
+![image](screenshots/charlottetown-geopresence-qgis.png)
+
 ## How To
 
 The PHP class class.geoarchive.php is a Swiss Army knife for turning geolocation archives into GeoJSON. [The code itself is well-documented](docs/index.html); here are the details of how you can get the raw data that the class needs as input:
