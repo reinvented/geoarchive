@@ -134,23 +134,23 @@ class GeoArchiveFoursquare extends GeoArchive
         $this->writeGeoJSONFile();
     }
 
-   /**
-   * Fix Foursquare descriptions XML.
-   *
-   * Foursquare's KML feed returns a 'description' element with unescaped CDATA.
-   * Here we fix this with a simple search and replace, adding CDATA to escape it.
-   */
+    /**
+    * Fix Foursquare descriptions XML.
+    *
+    * Foursquare's KML feed returns a 'description' element with unescaped CDATA.
+    * Here we fix this with a simple search and replace, adding CDATA to escape it.
+    */
     private function fixDescriptions()
     {
         $this->rawdata = str_replace('<description>', '<description><![CDATA[', $this->rawdata);
         $this->rawdata = str_replace('</description>', ']]></description>', $this->rawdata);
     }
 
-   /**
-   * Parse the checkins.
-   *
-   * For each checkin in the Foursquare KML file, we parse out the geodata.
-   */
+    /**
+    * Parse the checkins.
+    *
+    * For each checkin in the Foursquare KML file, we parse out the geodata.
+    */
     private function parseCheckins()
     {
         foreach ($this->rawevents->Folder->Placemark as $checkin) {
@@ -168,15 +168,15 @@ class GeoArchiveFoursquare extends GeoArchive
         }
     }
 
-   /**
-   * Parse Foursquare descriptions.
-   *
-   * The Foursquare 'description' element contains the Foursquare ID inside an URL,
-   * the name of the venue, and any comment the user added: here we parse out the
-   * ID and the comment.
-   *
-   * @param string $description A Foursquare description element.
-   */
+    /**
+    * Parse Foursquare descriptions.
+    *
+    * The Foursquare 'description' element contains the Foursquare ID inside an URL,
+    * the name of the venue, and any comment the user added: here we parse out the
+    * ID and the comment.
+    *
+    * @param string $description A Foursquare description element.
+    */
     private function parseFoursquareDescription($description)
     {
     $description = preg_replace("/^@/", '', $description);
@@ -246,10 +246,10 @@ class GeoArchivePlazes extends GeoArchive
     }
 
     /**
-   * Parse the activities.
-   *
-   * For each activity we associate it with a Plaze.
-   */
+    * Parse the activities.
+    *
+    * For each activity we associate it with a Plaze.
+    */
     private function parseCheckins()
     {
         foreach ($this->rawevents as $activity) {
@@ -304,11 +304,11 @@ class GeoArchiveTwitter extends GeoArchive
         $this->writeGeoJSONFile();
     }
 
-		/**
-		* Parse the activities.
-		*
-		* Find and parse each tweet that's geolocated.
-		*/
+    /**
+    * Parse the activities.
+    *
+    * Find and parse each tweet that's geolocated.
+    */
     private function parseTweets()
     {
         $handle = opendir($this->tweet_directory);
@@ -385,12 +385,12 @@ class GeoArchiveGoogleLatitude extends GeoArchive
     }
 
     /**
-		* Parse the traces.
-		*
-		* Find and parse each point. We do this kludgily right now because simply
-		* parsing the KML as XML maintains no assocation between the <when> and
-		* <gx:coord> elements: so we simply parse this as a text file.
-		*/
+    * Parse the traces.
+    *
+    * Find and parse each point. We do this kludgily right now because simply
+    * parsing the KML as XML maintains no assocation between the <when> and
+    * <gx:coord> elements: so we simply parse this as a text file.
+    */
     private function parseTrack()
     {
         $lines = explode("\n",$this->rawdata);
@@ -415,9 +415,9 @@ class GeoArchiveGoogleLatitude extends GeoArchive
 }
 
 /**
-  * An archive of OpenPath geolocations.
+  * An archive of OpenPaths geolocations.
   *
-  * Takes an archive of of geolocations from OpenPath and converts to GeoJSON.
+  * Takes an archive of of geolocations from OpenPaths and converts to GeoJSON.
   *
   * # Login to Openpaths.cc.
   * # Under "Download my data", click JSON.
@@ -455,10 +455,10 @@ class GeoArchiveOpenpaths extends GeoArchive
     }
 
     /**
-		* Parse the traces.
-		*
-		* Find and parse each geolocation.
-		*/
+    * Parse the traces.
+    *
+    * Find and parse each geolocation.
+    */
     private function parseCheckins()
     {
         foreach ($this->rawevents as $activity) {
@@ -522,10 +522,10 @@ class GeoArchiveFlickr extends GeoArchive
     }
 
     /**
-		* Parse the photo metadata.
-		*
-		* For each photo, parse out the location.
-		*/
+    * Parse the photo metadata.
+    *
+    * For each photo, parse out the location.
+    */
     private function parseFlickr()
     {
         $handle = opendir($this->flickr_directory);
