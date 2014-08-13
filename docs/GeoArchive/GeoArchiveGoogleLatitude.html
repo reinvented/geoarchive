@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class GeoArchiveGoogleLatitude</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class GeoArchiveGoogleLatitude</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">An archive of Google Latitude (or Google Location History) traces.</p>
+<p class="description"><p>Takes an archive of Google Latitude or Google Location History traces  and converts it to GeoJSON. Google Latitude no longer operates, so you  will need to have requested an archive of your traces before it shut down.  Google's Location History service, however, uses the same export format  and if you have Location History turned on for your Google account you  can request a KML archive as follows:</p><p><ul><li>Login to Google.</li><li>Go to https://maps.google.ca/locationhistory/b/0/</li><li>Grab the URL for the &quot;Export to KML&quot;.</li><li>Change the value of the startTime parameter to 0 - this allows you to get a complete archive, not just 30 days worth.</li><li>Visit this URL in your browser, and same the result as a local file.</li><li>Pass path to this local file as the $input_filename parameter.</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">example:</span> <a href="../__examplesource/exsource_chive_googlelatitude_googlelatitude-to-geojson.php_fcb9bb8d4c1b641517a030a8c7e10c01.html">example</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_class.geoarchive.php.html">/class.geoarchive.php</a> (line <span class="field">359</span>)
+		</p>
+		
+				
+		<pre><a href="../GeoArchive/GeoArchive.html">GeoArchive</a>
+   |
+   --GeoArchiveGoogleLatitude</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																				
+												<div class="method-definition">
+											<span class="method-result">GeoArchiveGoogleLatitude</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$time_zone</span> = <span class="var-default">'UTC'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$input_filename</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$output_filename</span> = <span class="var-default">'googlelatitude.geojson'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#processFile" title="details" class="method-name">processFile</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">368</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor function.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">GeoArchiveGoogleLatitude</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$time_zone</span> = <span class="var-default">'UTC'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$input_filename</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$output_filename</span> = <span class="var-default">'googlelatitude.geojson'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$time_zone</span><span class="var-description">: A time zone identifier.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$input_filename</span><span class="var-description">: File to read geopresence data from.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$output_filename</span><span class="var-description">: File to write geoJSON-format data to.</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../GeoArchive/GeoArchive.html#method__construct">GeoArchive::__construct()</a></dt>
+						<dd>Constructor.</dd>
+					</dl>
+			
+	</div>
+<a name="methodprocessFile" id="processFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">processFile</span> (line <span class="line-number">378</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Run the conversion.</p>
+<p class="description"><p>Loads the input files, processes the traces, writes the GeoJSON file.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			processFile
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../GeoArchive/GeoArchive.html">GeoArchive</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../GeoArchive/GeoArchive.html#method__construct">GeoArchive::__construct()</a></span><br>
+													<span class="method-name"><a href="../GeoArchive/GeoArchive.html#methodconvertFromJSON">GeoArchive::convertFromJSON()</a></span><br>
+													<span class="method-name"><a href="../GeoArchive/GeoArchive.html#methodconvertFromXML">GeoArchive::convertFromXML()</a></span><br>
+													<span class="method-name"><a href="../GeoArchive/GeoArchive.html#methodgetFileContents">GeoArchive::getFileContents()</a></span><br>
+													<span class="method-name"><a href="../GeoArchive/GeoArchive.html#methodwriteGeoJSONFile">GeoArchive::writeGeoJSONFile()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 13 Aug 2014 10:15:38 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</p>
+	</div></body>
+</html>

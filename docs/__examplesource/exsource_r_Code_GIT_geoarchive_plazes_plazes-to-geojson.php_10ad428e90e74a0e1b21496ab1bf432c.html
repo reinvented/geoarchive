@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>example</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+						<h1>example</h1>
+<div class="listing">
+<div class="src-code"><ol><li><div class="src-line">#!/usr/bin/env&nbsp;php</div></li>
+<li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;places-to-geojson.php&nbsp;-&nbsp;Convert&nbsp;Plazes&nbsp;export&nbsp;archive&nbsp;to&nbsp;GeoJSON.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You'll&nbsp;need&nbsp;to&nbsp;have&nbsp;received&nbsp;and&nbsp;saved&nbsp;an&nbsp;export&nbsp;of&nbsp;your&nbsp;Plazes&nbsp;data</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;Nokia&nbsp;when&nbsp;this&nbsp;option&nbsp;was&nbsp;made&nbsp;available&nbsp;before&nbsp;the&nbsp;service&nbsp;shutdown.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;Set&nbsp;the&nbsp;value&nbsp;of&nbsp;$plazes_visited&nbsp;to&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;plazes_visited.json&nbsp;from&nbsp;the&nbsp;export.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;Set&nbsp;the&nbsp;value&nbsp;of&nbsp;$plazes_activities&nbsp;to&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;activities_created.json&nbsp;from&nbsp;the&nbsp;export.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;1.0,&nbsp;August&nbsp;14,&nbsp;2014</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@author</span><span class="src-doc">&nbsp;Peter&nbsp;Rukavina&nbsp;&lt;peter@rukavina.net&gt;</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-var">$plazes_visited&nbsp;</span>=&nbsp;<span class="src-str">'/Users/peter/Documents/Archive/geolocation/plazes-history/plazes_visited.json'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-var">$plazes_activities&nbsp;</span>=&nbsp;<span class="src-str">'/Users/peter/Documents/Archive/geolocation/plazes-history/activities_created.json'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><span class="src-inc">require_once</span><span class="src-sym">(</span><span class="src-str">'../class.geoarchive.php'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-var">$ga&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../GeoArchive/GeoArchivePlazes.html">GeoArchivePlazes</a></span><span class="src-sym">(</span><span class="src-str">'UTC'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$plazes_visited</span><span class="src-sym">,&nbsp;</span><span class="src-var">$plazes_activities</span><span class="src-sym">,&nbsp;</span><span class="src-str">'plazes.geojson'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-var">$ga</span><span class="src-sym">-&gt;</span><a href="../GeoArchive/GeoArchivePlazes.html#methodprocessFile">processFile</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 13 Aug 2014 10:15:38 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</p>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+Grailbird.data.tweets_2006_12 = 
+ [ {
+  "source" : "<a href=\"http://taptaptap.com/camera+\" rel=\"nofollow\">Camera+</a>",
+  "entities" : {
+    "user_mentions" : [ {
+      "name" : "Robertson Library",
+      "screen_name" : "UPEILibrary",
+      "indices" : [ 25, 37 ],
+      "id_str" : "27858664",
+      "id" : 27858664
+    }, {
+      "name" : "Prince Street School",
+      "screen_name" : "princestschool",
+      "indices" : [ 72, 87 ],
+      "id_str" : "71577393",
+      "id" : 71577393
+    } ],
+    "media" : [ ],
+    "hashtags" : [ ],
+    "urls" : [ {
+      "indices" : [ 91, 113 ],
+      "url" : "http://t.co/xl1rgiTh3g",
+      "expanded_url" : "http://campl.us/pjKR",
+      "display_url" : "campl.us/pjKR"
+    } ]
+  },
+  "geo" : {
+    "type" : "Point",
+    "coordinates" : [ 46.2555427551, -63.1385154724 ]
+  },
+  "id_str" : "346675729251041280",
+  "text" : "Very happy with the book @upeilibrary printed on their book machine for @princestschool... http://t.co/xl1rgiTh3g",
+  "id" : 346675729251041280,
+  "created_at" : "Mon Jun 17 17:08:29 +0000 2013",
+  "user" : {
+    "name" : "Peter Rukavina",
+    "screen_name" : "ruk",
+    "protected" : false,
+    "id_str" : "61563",
+    "profile_image_url_https" : "https://si0.twimg.com/profile_images/74095847/Square-260_normal.jpg",
+    "id" : 61563,
+    "verified" : false
+  }
+} ]

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml>
+	<Folder>
+		<name>foursquare checkin history for Peter R.</name>
+		<description>foursquare checkin history for Peter R.</description>
+		<Placemark>
+			<name>Receiver Coffee</name>
+			<description>@<a href="https://foursquare.com/v/receiver-coffee/53a42100498eac9e6414a131">Receiver Coffee</a></description>
+			<updated>Mon, 11 Aug 14 18:30:54 +0000</updated>
+			<published>Mon, 11 Aug 14 18:30:54 +0000</published>
+			<visibility>1</visibility>
+			<Point>
+				<extrude>1</extrude>
+				<altitudeMode>relativeToGround</altitudeMode>
+				<coordinates>-63.12688204964597,46.233957276517216</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</kml>

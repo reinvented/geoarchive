@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>example</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+						<h1>example</h1>
+<div class="listing">
+<div class="src-code"><ol><li><div class="src-line">#!/usr/bin/env&nbsp;php</div></li>
+<li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;twitter-to-geojson.php&nbsp;-&nbsp;Convert&nbsp;geolocated&nbsp;Tweets&nbsp;to&nbsp;GeoJSON.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You'll&nbsp;need&nbsp;to&nbsp;request&nbsp;a&nbsp;&quot;Twitter&nbsp;archive&quot;&nbsp;from&nbsp;https://twitter.com/settings/account&nbsp;and&nbsp;then</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wait&nbsp;until&nbsp;the&nbsp;archive&nbsp;is&nbsp;generated&nbsp;and&nbsp;a&nbsp;link&nbsp;emailed&nbsp;to&nbsp;you.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;Unzip&nbsp;the&nbsp;archive.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;Set&nbsp;the&nbsp;value&nbsp;of&nbsp;$tweet_directory&nbsp;to&nbsp;the&nbsp;directory&nbsp;in&nbsp;the&nbsp;archived&nbsp;that&nbsp;holds&nbsp;JSON&nbsp;files</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;your&nbsp;tweets&nbsp;--&nbsp;it's&nbsp;data/js/tweets&nbsp;in&nbsp;the&nbsp;ZIP&nbsp;file.&nbsp;Include&nbsp;the&nbsp;trailing&nbsp;slash.</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;1.0,&nbsp;August&nbsp;14,&nbsp;2014</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*&nbsp;</span><span class="src-doc-coretag">@author</span><span class="src-doc">&nbsp;Peter&nbsp;Rukavina&nbsp;&lt;peter@rukavina.net&gt;</span></div></li>
+<li><div class="src-line"><span class="src-doc">&nbsp;&nbsp;*/</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-var">$tweet_directory&nbsp;</span>=&nbsp;<span class="src-str">'/Users/peter/Documents/Archive/geolocation/twitter/tweets/data/js/tweets/'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-inc">require_once</span><span class="src-sym">(</span><span class="src-str">'../class.geoarchive.php'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-var">$ga&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../GeoArchive/GeoArchiveTwitter.html">GeoArchiveTwitter</a></span><span class="src-sym">(</span><span class="src-str">'UTC'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$tweet_directory</span><span class="src-sym">,&nbsp;</span><span class="src-str">'twitter.geojson'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-var">$ga</span><span class="src-sym">-&gt;</span><a href="../GeoArchive/GeoArchiveTwitter.html#methodprocessFile">processFile</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 13 Aug 2014 10:15:38 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</p>
+	</body>
+</html>

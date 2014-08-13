@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class GeoArchive</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class GeoArchive</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">An archive of geopresences.</p>
+		<p class="notes">
+			Located in <a class="field" href="_class.geoarchive.php.html">/class.geoarchive.php</a> (line <span class="field">32</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../GeoArchive/GeoArchiveFoursquare.html">GeoArchiveFoursquare</a></td>
+					<td>
+											An archive of Foursquare checkins.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../GeoArchive/GeoArchivePlazes.html">GeoArchivePlazes</a></td>
+					<td>
+											An archive of Plazes activities.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../GeoArchive/GeoArchiveTwitter.html">GeoArchiveTwitter</a></td>
+					<td>
+											An archive of geolocated Twitter tweets.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../GeoArchive/GeoArchiveGoogleLatitude.html">GeoArchiveGoogleLatitude</a></td>
+					<td>
+											An archive of Google Latitude (or Google Location History) traces.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../GeoArchive/GeoArchiveOpenpaths.html">GeoArchiveOpenpaths</a></td>
+					<td>
+											An archive of OpenPath geolocations.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../GeoArchive/GeoArchiveFlickr.html">GeoArchiveFlickr</a></td>
+					<td>
+											An archive of geolocated Flickr photos.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																												
+												<div class="method-definition">
+											<span class="method-result">GeoArchive</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$time_zone</span> = <span class="var-default">'UTC'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$input_filename</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$output_filename</span> = <span class="var-default">'data.geojson'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#convertFromJSON" title="details" class="method-name">convertFromJSON</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#convertFromXML" title="details" class="method-name">convertFromXML</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getFileContents" title="details" class="method-name">getFileContents</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#writeGeoJSONFile" title="details" class="method-name">writeGeoJSONFile</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">42</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor.</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> InvalidArgumentException</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">GeoArchive</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$time_zone</span> = <span class="var-default">'UTC'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$input_filename</span> = <span class="var-default">NULL</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$output_filename</span> = <span class="var-default">'data.geojson'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$time_zone</span><span class="var-description">: A time zone identifier.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$input_filename</span><span class="var-description">: File to read geopresence data from.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$output_filename</span><span class="var-description">: File to write geoJSON-format data to.</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../GeoArchive/GeoArchiveFoursquare.html#method__construct">GeoArchiveFoursquare::__construct()</a>
+								: Constructor function.
+							</li>
+					<li>
+				<a href="../GeoArchive/GeoArchivePlazes.html#method__construct">GeoArchivePlazes::__construct()</a>
+								: Constructor.
+							</li>
+					<li>
+				<a href="../GeoArchive/GeoArchiveTwitter.html#method__construct">GeoArchiveTwitter::__construct()</a>
+								: Constructor function.
+							</li>
+					<li>
+				<a href="../GeoArchive/GeoArchiveGoogleLatitude.html#method__construct">GeoArchiveGoogleLatitude::__construct()</a>
+								: Constructor function.
+							</li>
+					<li>
+				<a href="../GeoArchive/GeoArchiveOpenpaths.html#method__construct">GeoArchiveOpenpaths::__construct()</a>
+								: Constructor function.
+							</li>
+					<li>
+				<a href="../GeoArchive/GeoArchiveFlickr.html#method__construct">GeoArchiveFlickr::__construct()</a>
+								: Constructor function.
+							</li>
+				</ul>
+	</div>
+<a name="methodconvertFromJSON" id="convertFromJSON"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">convertFromJSON</span> (line <span class="line-number">76</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Convert the raw data from JSON into a PHP object.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			convertFromJSON
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodconvertFromXML" id="convertFromXML"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">convertFromXML</span> (line <span class="line-number">69</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Convert the raw data from XML into a PHP object.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			convertFromXML
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFileContents" id="getFileContents"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFileContents</span> (line <span class="line-number">62</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the contents of the input file.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getFileContents
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodwriteGeoJSONFile" id="writeGeoJSONFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">writeGeoJSONFile</span> (line <span class="line-number">83</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Write the parsed events into a geoJSON file.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			writeGeoJSONFile
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 13 Aug 2014 10:15:38 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</p>
+	</div></body>
+</html>
