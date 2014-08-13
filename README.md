@@ -135,7 +135,7 @@ $ga->processFile();
 
 Depending on your camera, it's possible that some or all of your Flickr photos have geolocation data attached to them.
 
-Right now the process of getting this information out of Flickr is more complicated that it should be, and involves some work on your part.
+Right now the process of getting this information out of Flickr is more complicated that it should be, involves some work on your part, and requires Python.
 
  * You'll need to use the [Open Photos Flickr export script](https://github.com/photo/export-flickr), which is well-documented. Although it's intended to support Open Photos it does exactly what we need: grabs JSON data about Flickr photos.
  * Follow the instructions in the [README](https://github.com/photo/export-flickr/blob/master/Readme.markdown) for that script, but before you run the fetch script, change the reference to `flickr.people_getPhotos` to `photos_getWithGeoData`. Change:
