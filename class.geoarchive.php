@@ -41,19 +41,26 @@ class GeoArchive
     */
     public function __construct($time_zone = 'UTC', $input_filename = null, $output_filename = 'data.geojson')
     {
-            if (!date_default_timezone_set($time_zone)) {
-                throw new InvalidArgumentException("$time_zone is not a valid time zone identifier");
-            }
+        $this->time_zone = $time_zone;
+        $this->input_filename = $input_filename;
+        $this->output_filename = $output_filename;
+        $this->validateArguments();
+    }
 
-            if (!$input_filename) {
-                throw new InvalidArgumentException("You must specify an input filename or directory");
-            } elseif (!file_exists($input_filename)) {
-                throw new InvalidArgumentException("$input_filename does not exist");
-            }
+    /**
+    * Validate the arguments passed to the constructor.
+    */
+    private function validateArguments()
+    {
+        if (!date_default_timezone_set($this->time_zone)) {
+                throw new InvalidArgumentException($this->time_zone . ' is not a valid time zone identifier.');
+        }
 
-            $this->time_zone = $time_zone;
-            $this->input_filename = $input_filename;
-            $this->output_filename = $output_filename;
+        if (!$this->input_filename) {
+                throw new InvalidArgumentException('You must specify an input filename or directory.');
+        } elseif (!file_exists($this->input_filename)) {
+                throw new InvalidArgumentException($this->input_filename . ' does not exist.');
+        }
     }
 
     /**
@@ -154,17 +161,17 @@ class GeoArchiveFoursquare extends GeoArchive
     private function parseCheckins()
     {
         foreach ($this->rawevents->Folder->Placemark as $checkin) {
-                $event = array();
-                $event['type'] = 'Feature';
-                list($lon, $lat) = split(',', $checkin->Point->coordinates);
-                $event['geometry'] = array('type' => 'Point', 'coordinates' => array((double) $lon, (double) $lat));
-                $event['properties']['source'] = 'Foursquare';
-                $event['properties']['title'] = (string) $checkin->name;
-                $event['properties']['when'] = strftime('%Y-%m-%d %H:%M:%S +0000', strtotime($checkin->published));
-                list($ID, $comment) = $this->parseFoursquareDescription((string) $checkin->description);
-                $event['properties']['id'] = $ID;
-                $event['properties']['comment'] = $comment;
-                $this->events[] = $event;
+			$event = array();
+			$event['type'] = 'Feature';
+			list($lon, $lat) = split(',', $checkin->Point->coordinates);
+			$event['geometry'] = array('type' => 'Point', 'coordinates' => array((double) $lon, (double) $lat));
+			$event['properties']['source'] = 'Foursquare';
+			$event['properties']['title'] = (string) $checkin->name;
+			$event['properties']['when'] = strftime('%Y-%m-%d %H:%M:%S +0000', strtotime($checkin->published));
+			list($ID, $comment) = $this->parseFoursquareDescription((string) $checkin->description);
+			$event['properties']['id'] = $ID;
+			$event['properties']['comment'] = $comment;
+			$this->events[] = $event;
         }
     }
 
@@ -179,10 +186,9 @@ class GeoArchiveFoursquare extends GeoArchive
     */
     private function parseFoursquareDescription($description)
     {
-    $description = preg_replace("/^@/", '', $description);
-    preg_match("/(.*)\/(.*)\">.*<\/a>-? ?(.*)$/", $description, $matches);
-
-    return array($matches[2], $matches[3]);
+		$description = preg_replace("/^@/", '', $description);
+		preg_match("/(.*)\/(.*)\">.*<\/a>-? ?(.*)$/", $description, $matches);
+		return array($matches[2], $matches[3]);
     }
 }
 
@@ -253,15 +259,15 @@ class GeoArchivePlazes extends GeoArchive
     private function parseCheckins()
     {
         foreach ($this->rawevents as $activity) {
-                $event = array();
-                $event['type'] = 'Feature';
-                $event['geometry'] = array('type' => 'Point', 'coordinates' => array((double) $this->plazes_id[$activity->activity->plaze_id]->longitude, (double) $this->plazes_id[$activity->activity->plaze_id]->latitude));
-                $event['properties']['source'] = 'Plazes';
-                $event['properties']['title'] = (string) $this->plazes_id[$activity->activity->plaze_id]->name;
-                $event['properties']['when'] = strftime('%Y-%m-%d %H:%M:%S +0000', strtotime($activity->activity->created_at));
-                $event['properties']['id'] = (string) $this->plazes_id[$activity->activity->plaze_id]->id;
-                $event['properties']['comment'] = (string) $activity->activity->status;
-                $this->events[] = $event;
+			$event = array();
+			$event['type'] = 'Feature';
+			$event['geometry'] = array('type' => 'Point', 'coordinates' => array((double) $this->plazes_id[$activity->activity->plaze_id]->longitude, (double) $this->plazes_id[$activity->activity->plaze_id]->latitude));
+			$event['properties']['source'] = 'Plazes';
+			$event['properties']['title'] = (string) $this->plazes_id[$activity->activity->plaze_id]->name;
+			$event['properties']['when'] = strftime('%Y-%m-%d %H:%M:%S +0000', strtotime($activity->activity->created_at));
+			$event['properties']['id'] = (string) $this->plazes_id[$activity->activity->plaze_id]->id;
+			$event['properties']['comment'] = (string) $activity->activity->status;
+			$this->events[] = $event;
         }
     }
 }
@@ -462,13 +468,13 @@ class GeoArchiveOpenpaths extends GeoArchive
     private function parseCheckins()
     {
         foreach ($this->rawevents as $activity) {
-                $event = array();
-                $event['type'] = 'Feature';
-                $event['geometry'] = array('type' => 'Point', 'coordinates' => array((double) $activity->lon, (double) $activity->lat));
-                $event['properties']['source'] = 'Openpaths';
-                $event['properties']['when'] = strftime('%Y-%m-%d %H:%M:%S +0000', $activity->t);
-                $event['properties']['comment'] = (string) $activity->device;
-                $this->events[] = $event;
+			$event = array();
+			$event['type'] = 'Feature';
+			$event['geometry'] = array('type' => 'Point', 'coordinates' => array((double) $activity->lon, (double) $activity->lat));
+			$event['properties']['source'] = 'Openpaths';
+			$event['properties']['when'] = strftime('%Y-%m-%d %H:%M:%S +0000', $activity->t);
+			$event['properties']['comment'] = (string) $activity->device;
+			$this->events[] = $event;
         }
     }
 }
