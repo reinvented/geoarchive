@@ -18,6 +18,6 @@ $tweet_directory = '/Users/peter/Documents/Archive/geolocation/twitter/tweets/da
 
 require_once('../class.geoarchive.php');
 
-$ga = new GeoArchiveTwitter('UTC', $tweet_directory, 'twitter.geojson');
+$ga = new GeoArchiveTwitter('UTC', $tweet_directory, '/tmp/twitter.geojson');
 $ga->processFile();
 

@@ -24,5 +24,5 @@ $flickr_directory = '/Users/peter/Documents/Archive/geolocation/flickr/fetched/'
 
 require_once '../class.geoarchive.php';
 
-$ga = new GeoArchiveFlickr('UTC', $flickr_directory, 'flickr.geojson');
+$ga = new GeoArchiveFlickr('UTC', $flickr_directory, '/tmp/flickr.geojson');
 $ga->processFile();
