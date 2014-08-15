@@ -16,6 +16,6 @@ $moves_json = '/Users/peter/Documents/Archive/geolocation/moves_export/geojson/f
   
 require_once('../class.geoarchive.php');
 
-$ga = new GeoArchiveMoves('UTC', $moves_json, 'moves.geojson');
+$ga = new GeoArchiveMoves('UTC', $moves_json, '/tmp/moves.geojson');
 $ga->processFile();
 
