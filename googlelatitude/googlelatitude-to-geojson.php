@@ -27,3 +27,9 @@ $google_location_history_kml = '/Users/peter/Documents/Archive/geolocation/googl
 
 $ga = new GeoArchiveGoogleLatitude('UTC', $google_location_history_kml, '/tmp/googlelatitude.geojson');
 $ga->processFile();
+
+ini_set('memory_limit', -1);
+$google_location_history_kml = '/Users/peter/Documents/Archive/geolocation/googlelocation/googlelocation.kml';
+
+$ga = new GeoArchiveGoogleLatitude('UTC', $google_location_history_kml, '/tmp/googlelocation.geojson');
+$ga->processFile();

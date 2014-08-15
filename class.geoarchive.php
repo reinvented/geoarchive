@@ -537,14 +537,14 @@ class GeoArchiveFlickr extends GeoArchive
         $handle = opendir($this->flickr_directory);
         while (false !== ($entry = readdir($handle))) {
             if ($entry != "." && $entry != "..") {
-                $contents = file_get_contents($this->flickr_directory .$entry);
+                $contents = file_get_contents($this->flickr_directory . $entry);
                 $photo = json_decode($contents);
                 $event = array();
                 $event['type'] = 'Feature';
                 $event['geometry'] = array('type' => 'Point', 'coordinates' => array((double) $photo->longitude, (double) $photo->latitude));
                 $event['properties']['source'] = $photo->title;
                 $event['properties']['title'] = 'Flickr';
-                $event['properties']['when'] = strftime('%Y-%m-%d %H:%M:%S +0000', strtotime($photo->dateUploaded));
+                $event['properties']['when'] = strftime('%Y-%m-%d %H:%M:%S +0000', $photo->dateTaken);
                 $event['properties']['id'] = (string) $photo->id;
                 if (array_key_exists('description', $photo)) {
                     $event['properties']['comment'] = (string) $photo->description;
@@ -553,5 +553,68 @@ class GeoArchiveFlickr extends GeoArchive
             }
         }
         closedir($handle);
+    }
+}
+
+/**
+  * An archive of Moves app places.
+  *
+  * Takes an archive of of geolocations from the Moves app and converts to GeoJSON.
+  *
+  * # Login to www.moves-app.com.
+  * # Find the link for "Export Data".
+  * # Save the result as a local file and unzip, then unzip the geojson.zip file.
+  * # Pass the path to the full places.geojson file as the $input_filename parameter - in the ZIP archive it's under geojson/full/places.geojson
+  *
+  * @package GeoArchive
+  * @example moves/moves-to-geojson.php
+  */
+class GeoArchiveMoves extends GeoArchive
+{
+    /**
+    * Constructor function.
+    *
+    * @param string $time_zone A time zone identifier.
+    * @param string $input_filename File to read geopresence data from.
+    * @param string $output_filename File to write geoJSON-format data to.
+    */
+    public function __construct($time_zone = 'UTC', $input_filename = null, $output_filename = 'moves.geojson')
+    {
+        parent::__construct($time_zone, $input_filename, $output_filename);
+    }
+
+    /**
+    * Run the conversion.
+    *
+    * Loads the input files, processes the geolocations, writes the GeoJSON file.
+    */
+    public function processFile()
+    {
+        $this->getFileContents();
+        $this->convertFromJSON();
+        $this->parsePlaces();
+        $this->writeGeoJSONFile();
+    }
+
+    /**
+    * Parse the traces.
+    *
+    * Find and parse each geolocation.
+    */
+    private function parsePlaces()
+    {
+        foreach ($this->rawevents->features as $place) {
+            $event = array();
+            $event['type'] = 'Feature';
+            $event['geometry'] = array('type' => 'Point', 'coordinates' => array((double) $place->properties->place->location->lon, (double) $place->properties->place->location->lat));
+            $event['properties']['source'] = 'Moves';
+            $event['properties']['when'] = strftime('%Y-%m-%d %H:%M:%S +0000', strtotime($place->properties->startTime));
+            if (array_key_exists('name', $place->properties->place)) {
+                $event['properties']['title'] = (string) $place->properties->place->name;
+            }
+            $event['properties']['id'] = (string) $place->properties->place->id;
+            $event['properties']['comment'] = (string) $place->properties->place->type;
+            $this->events[] = $event;
+        }
     }
 }

@@ -168,3 +168,17 @@ require_once 'class.geoarchive.php';
 $ga = new GeoArchiveFlickr('UTC', $flickr_directory, 'flickr.geojson');
 $ga->processFile();
 ```
+
+### Moves
+
+* Login to [www.moves-app.com](https://www.moves-app.com/).
+* Find the link for "Export Data".
+* Save the result as a local file and unzip, then unzip the geojson.zip file.
+* Pass the path to the full places.geojson file as the $input_filename parameter - in the ZIP archive it's under geojson/full/places.geojson
+ 
+```php 
+$moves_json = './places.geojson';
+require_once('../class.geoarchive.php');
+$ga = new GeoArchiveMoves('UTC', $moves_json, 'moves.geojson');
+$ga->processFile();
+```
