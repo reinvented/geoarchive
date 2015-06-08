@@ -163,7 +163,7 @@ class GeoArchiveFoursquare extends GeoArchive
         foreach ($this->rawevents->Folder->Placemark as $checkin) {
             $event = array();
             $event['type'] = 'Feature';
-            list($lon, $lat) = split(',', $checkin->Point->coordinates);
+            list($lon, $lat) = explode(',', $checkin->Point->coordinates);
             $event['geometry'] = array('type' => 'Point', 'coordinates' => array((double) $lon, (double) $lat));
             $event['properties']['source'] = 'Foursquare';
             $event['properties']['title'] = (string) $checkin->name;
@@ -334,6 +334,11 @@ class GeoArchiveTwitter extends GeoArchive
                             $event['properties']['when'] = strftime('%Y-%m-%d %H:%M:%S +0000', strtotime($tweet->created_at));
                             $event['properties']['id'] = (string) $tweet->id;
                             $event['properties']['comment'] = (string) $tweet->text;
+                            if ((array_key_exists('entities',$tweet)) and (array_key_exists('media',$tweet->entities))) {
+                              foreach($tweet->entities->media as $media) {
+                                $event['properties']['photo'] = (string) $media->media_url;
+                              }
+                            }
                             $this->events[] = $event;
                         }
                     }
@@ -548,6 +553,9 @@ class GeoArchiveFlickr extends GeoArchive
                 $event['properties']['id'] = (string) $photo->id;
                 if (array_key_exists('description', $photo)) {
                     $event['properties']['comment'] = (string) $photo->description;
+                }
+                if (array_key_exists('photo', $photo)) {
+                    $event['properties']['photo'] = (string) $photo->photo;
                 }
                 $this->events[] = $event;
             }
